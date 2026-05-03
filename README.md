@@ -1,1 +1,2 @@
 MINDFLIX AI is a Python-based mood-driven movie recommendation system that suggests films using user emotions, genre preferences, and weighted scoring logic. Built with a CLI interface and randomized recommendations, it demonstrates beginner-friendly recommendation system concepts, modular programming, and personalized movie selection workflows. https://movie-mood-match--gamerxstorm88.replit.app
+ACIT project by Abdul Moueed and Roman Ahmad
