@@ -1,0 +1,300 @@
+import random
+
+# ======================================================
+#                    MINDFLIX AI
+#                    AICT PROJECT
+#
+#           Designed By Abdul Moueed & Roman
+# ======================================================
+
+# ======================================================
+# MOVIE DATABASE
+# ======================================================
+
+movies = {
+
+    "Action": [
+        "John Wick",
+        "Mad Max: Fury Road",
+        "The Dark Knight",
+        "Gladiator",
+        "Top Gun: Maverick",
+        "Mission Impossible",
+        "Extraction",
+        "The Raid",
+        "Nobody",
+        "Baby Driver"
+    ],
+
+    "Emotional": [
+        "The Shawshank Redemption",
+        "Forrest Gump",
+        "A Silent Voice",
+        "Your Name",
+        "The Pursuit of Happyness",
+        "The Green Mile",
+        "La La Land",
+        "Her",
+        "Soul",
+        "Aftersun"
+    ],
+
+    "Mind-Bending": [
+        "Interstellar",
+        "Inception",
+        "The Matrix",
+        "Fight Club",
+        "Shutter Island",
+        "Memento",
+        "Arrival",
+        "Predestination",
+        "The Prestige",
+        "Tenet"
+    ],
+
+    "Comfort": [
+        "Spirited Away",
+        "Toy Story",
+        "Ratatouille",
+        "Paddington 2",
+        "Spider-Man: Into the Spider-Verse",
+        "Rush Hour",
+        "Superbad",
+        "Coco",
+        "Howl's Moving Castle",
+        "The Secret Life of Walter Mitty"
+    ],
+
+    "Dark": [
+        "Joker",
+        "Se7en",
+        "Prisoners",
+        "Nightcrawler",
+        "Gone Girl",
+        "Black Swan",
+        "Parasite",
+        "Taxi Driver",
+        "American Psycho",
+        "The Batman"
+    ]
+}
+
+# ======================================================
+# SCORES
+# ======================================================
+
+scores = {
+
+    "Action": 0,
+    "Emotional": 0,
+    "Mind-Bending": 0,
+    "Comfort": 0,
+    "Dark": 0
+}
+
+# ======================================================
+# INTRO
+# ======================================================
+
+print("=" * 65)
+print("                       MINDFLIX AI")
+print("                       AICT PROJECT")
+print()
+print("             Designed By Abdul Moueed & Roman Ahmed")
+print("=" * 65)
+
+# ======================================================
+# QUESTION 1 — GENRE
+# ======================================================
+
+while True:
+
+    print("\n1. What do you want tonight?\n")
+
+    print("A. Action")
+    print("B. Emotional")
+    print("C. Mind-Blowing")
+    print("D. Comfort Watch")
+    print("E. Dark Story")
+
+    choice = input("\nChoose (A/B/C/D/E): ").strip().upper()
+
+    if choice == "A":
+
+        scores["Action"] += 5
+        break
+
+    elif choice == "B":
+
+        scores["Emotional"] += 5
+        break
+
+    elif choice == "C":
+
+        scores["Mind-Bending"] += 5
+        break
+
+    elif choice == "D":
+
+        scores["Comfort"] += 5
+        break
+
+    elif choice == "E":
+
+        scores["Dark"] += 5
+        break
+
+    else:
+
+        print("\n❌ Wrong Choice! Please choose again.")
+
+# ======================================================
+# QUESTION 2 — MOOD
+# ======================================================
+
+while True:
+
+    print("\n2. What's your mood?\n")
+
+    print("A. Excited")
+    print("B. Sad")
+    print("C. Curious")
+    print("D. Tired")
+
+    choice = input("\nChoose (A/B/C/D): ").strip().upper()
+
+    if choice == "A":
+
+        scores["Action"] += 3
+        break
+
+    elif choice == "B":
+
+        scores["Emotional"] += 3
+        scores["Comfort"] += 1
+        break
+
+    elif choice == "C":
+
+        scores["Mind-Bending"] += 3
+        break
+
+    elif choice == "D":
+
+        scores["Comfort"] += 3
+        break
+
+    else:
+
+        print("\n❌ Wrong Choice! Please choose again.")
+
+# ======================================================
+# QUESTION 3 — ENDING
+# ======================================================
+
+while True:
+
+    print("\n3. How should the movie end?\n")
+
+    print("A. Happy")
+    print("B. Emotional")
+    print("C. Mind-Blowing Twist")
+    print("D. Dark")
+
+    choice = input("\nChoose (A/B/C/D): ").strip().upper()
+
+    if choice == "A":
+
+        scores["Comfort"] += 2
+        scores["Emotional"] += 2
+        break
+
+    elif choice == "B":
+
+        scores["Emotional"] += 3
+        break
+
+    elif choice == "C":
+
+        scores["Mind-Bending"] += 3
+        break
+
+    elif choice == "D":
+
+        scores["Dark"] += 3
+        break
+
+    else:
+
+        print("\n❌ Wrong Choice! Please choose again.")
+
+# ======================================================
+# QUESTION 4 — EMOTIONAL DEPTH
+# ======================================================
+
+while True:
+
+    print("\n4. How deep should the movie be?\n")
+
+    print("A. Simple & Fun")
+    print("B. Balanced")
+    print("C. Deep & Thought-Provoking")
+
+    choice = input("\nChoose (A/B/C): ").strip().upper()
+
+    if choice == "A":
+
+        scores["Comfort"] += 2
+        scores["Action"] += 2
+        break
+
+    elif choice == "B":
+
+        scores["Emotional"] += 2
+        break
+
+    elif choice == "C":
+
+        scores["Mind-Bending"] += 3
+        scores["Dark"] += 2
+        break
+
+    else:
+
+        print("\n❌ Wrong Choice! Please choose again.")
+
+# ======================================================
+# FIND BEST GENRE
+# ======================================================
+
+best_genre = max(scores, key=scores.get)
+
+# ======================================================
+# SELECT 3 RANDOM MOVIES
+# ======================================================
+
+recommended_movies = random.sample(
+    movies[best_genre],
+    3
+)
+
+# ======================================================
+# RESULTS
+# ======================================================
+
+print("\n" + "=" * 65)
+
+print(f"\nRecommended Genre: {best_genre}")
+
+print("\n🎬 Your Movie Picks:\n")
+
+for index, movie in enumerate(recommended_movies, start=1):
+
+    print(f"{index}. {movie}")
+
+print("\n🍿 Enjoy Your Movie Night!")
+
+print("\nFor Better Experience Visit Our Website:")
+print("https://movie-mood-match--gamerxstorm88.replit.app/")
+
+print("\n" + "=" * 65)
